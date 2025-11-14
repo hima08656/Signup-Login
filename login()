@@ -1,0 +1,30 @@
+function signup(userName) {
+  const users = ["alice", "bob", "charlie"];
+  if (users.includes(userName)) {
+    return "User Already Registered, Please Login";
+  } else {
+    users.push(userName);
+    return "Signup Sucessfull, Please Login";
+  }
+}
+
+function login(userName, password) {
+  const userRecords = [
+    { userName: "alice", password: "Emp@123" },
+    { userName: "bob",   password: "Emp@123" },
+    { userName: "charlie", password: "Emp@123" }
+  ];
+
+  const found = userRecords.find(u => u.userName === userName);
+
+  if (!found) {
+    return "User Not Found, Please Signup";
+  }
+  if (found.password === password) {
+    return "Login Sucessfull...";
+  } else {
+    return "Wrong Password....";
+  }
+}
+
+module.exports = { signup, login };
